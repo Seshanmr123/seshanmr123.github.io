@@ -45,7 +45,7 @@
 .personal-avatar .avatar-idle{opacity:1;object-position:center 50%}
 .personal-avatar .avatar-greeting{opacity:0;pointer-events:none}
 .personal-avatar.is-greeting .avatar-idle{opacity:0}
-.personal-avatar.is-greeting .avatar-greeting{opacity:1;animation:portrait-wave .9s ease-in-out both!important}
+.personal-avatar.is-greeting .avatar-greeting{opacity:1;animation:none!important}
 .personal-avatar .avatar-wave-spark{opacity:0!important;animation:none!important}
 @keyframes portrait-wave{0%{transform:rotate(-1.5deg) scale(1.015)}35%{transform:rotate(1.2deg) scale(1.025)}65%{transform:rotate(-.8deg) scale(1.015)}100%{transform:rotate(0) scale(1)}}
 @media(prefers-reduced-motion:reduce){.personal-avatar .avatar-portrait{transition:none!important}.personal-avatar.is-greeting .avatar-greeting{animation:none!important}}
@@ -69,21 +69,20 @@ if(scene && window.matchMedia('(prefers-reduced-motion: no-preference)').matches
 (function(){
   const scene=document.querySelector('.personal-avatar');
   if(!scene)return;
-  const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  let last=0, timeout;
-  function greet(){
-    const now=Date.now();
-    if(now-last<1700)return;
-    last=now;
+  let resetTimer;
+  function reset(){clearTimeout(resetTimer);scene.classList.remove('is-greeting');}
+  function greet(event){
+    if(event && event.pointerType==='touch')return;
     scene.classList.add('is-greeting');
-    clearTimeout(timeout);
-    timeout=setTimeout(()=>scene.classList.remove('is-greeting'),reduce?1800:2400);
+    clearTimeout(resetTimer);
+    // Return to the chin-resting portrait when the pointer stops moving.
+    resetTimer=setTimeout(reset,1400);
   }
-  // A real cursor movement (not initial loading) triggers a short greeting.
-  window.addEventListener('pointermove',e=>{if(e.pointerType==='mouse'||e.pointerType==='pen')greet()},{passive:true});
-  scene.addEventListener('pointerdown',greet,{passive:true});
-  scene.addEventListener('focusin',greet);
-  document.addEventListener('visibilitychange',()=>{if(document.hidden){clearTimeout(timeout);scene.classList.remove('is-greeting')}});
+  // Only movement inside the avatar image can trigger the greeting.
+  scene.addEventListener('pointermove',greet,{passive:true});
+  scene.addEventListener('pointerleave',reset);
+  scene.addEventListener('pointercancel',reset);
+  document.addEventListener('visibilitychange',()=>{if(document.hidden)reset();});
 })();
 </script></body>
 </html>
