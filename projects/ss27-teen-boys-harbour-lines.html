@@ -1,0 +1,309 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Harbour Lines — SS27 Teen Boys | Seshan M R</title>
+
+<style>
+:root {
+  --bg: #faf7f2;
+  --ink: #292523;
+  --muted: #746e69;
+  --line: #e1dcd5;
+  --accent: #a44a68;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* HEADER */
+header {
+  padding: 23px max(22px, 5vw);
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  align-items: center;
+}
+
+.brand {
+  font-weight: 800;
+  letter-spacing: .14em;
+  font-size: 13px;
+}
+
+.back {
+  font-size: 12px;
+  transition: opacity .3s ease;
+}
+
+.back:hover { opacity: .55; }
+
+/* MAIN */
+main {
+  max-width: 1240px;
+  margin: auto;
+  padding: 56px max(22px, 5vw) 80px;
+}
+
+.eyebrow {
+  color: var(--accent);
+  font-size: 11px;
+  letter-spacing: .2em;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+h1 {
+  font-size: clamp(46px, 8vw, 96px);
+  font-weight: 500;
+  letter-spacing: -.075em;
+  line-height: 1.04;
+  margin: 16px 0 20px;
+}
+
+h1 em {
+  font-family: Georgia, serif;
+  font-weight: 400;
+}
+
+.intro {
+  max-width: 680px;
+  margin-bottom: 42px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+/* NAVIGATION */
+.nav {
+  display: flex;
+  gap: 9px;
+  flex-wrap: wrap;
+  padding: 22px 0 32px;
+}
+
+.nav a {
+  border: 1px solid var(--line);
+  padding: 9px 12px;
+  font-size: 12px;
+  transition:
+    background .3s ease,
+    color .3s ease,
+    transform .3s ease;
+}
+
+.nav a:hover {
+  background: var(--ink);
+  color: white;
+  transform: translateY(-3px);
+}
+
+/* COLLECTION PAGES */
+.page {
+  padding: 36px 0 52px;
+  border-top: 1px solid var(--line);
+  scroll-margin-top: 20px;
+  opacity: 1;
+  transform: none;
+}
+
+.page-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: baseline;
+  margin-bottom: 20px;
+}
+
+.page h2 {
+  font-size: clamp(23px, 3vw, 36px);
+  font-weight: 500;
+  letter-spacing: -.035em;
+  margin: 0;
+}
+
+.page small {
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.page img {
+  display: block;
+  width: 100%;
+  height: auto;
+  box-shadow: 0 5px 25px #2925230b;
+}
+
+/* SMOOTH FADE-IN ON SCROLL */
+@keyframes harbourReveal {
+  from {
+    opacity: .35;
+    transform: translateY(34px);
+    filter: brightness(.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: brightness(1);
+  }
+}
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .page {
+      animation: harbourReveal linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 35%;
+    }
+  }
+}
+
+/* PREMIUM IMAGE HOVER */
+@media (hover: hover) and (pointer: fine) {
+  .page img {
+    transition:
+      transform .8s cubic-bezier(.2,.7,.2,1),
+      filter .8s ease,
+      box-shadow .8s ease;
+    transform-origin: center;
+  }
+
+  .page img:hover {
+    transform: scale(1.035);
+    filter: brightness(1.04) contrast(1.02);
+    box-shadow: 0 20px 50px #29252320;
+  }
+}
+
+/* ACCESSIBILITY */
+@media (prefers-reduced-motion: reduce) {
+  .page,
+  .page img {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
+}
+
+/* FOOTER */
+footer {
+  border-top: 1px solid var(--line);
+  padding: 25px 5vw;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+/* MOBILE & IPAD */
+@media (max-width: 700px) {
+  main { padding-top: 40px; }
+  .page { padding: 25px 0 35px; }
+  .page-head { display: block; }
+  .page small {
+    display: block;
+    margin-top: 8px;
+  }
+}
+</style>
+</head>
+
+<body>
+<header>
+  <a class="brand" href="/">SESHAN M R</a>
+  <a class="back" href="/projects/ss27.html">
+    ← All SS27 collections
+  </a>
+</header>
+
+<main>
+  <div class="eyebrow">SS27 / Teen Boys / 8–16 Years</div>
+
+  <h1>Harbour <em>Lines.</em></h1>
+
+  <p class="intro">
+    A contemporary summer kidswear collection inspired by
+    coastal living and nautical influences. Explore the
+    collection development, garment styling, coordinated
+    looks and visual presentation.
+  </p>
+
+  <nav class="nav" id="navigation"
+       aria-label="Collection pages"></nav>
+
+  <div id="gallery"></div>
+</main>
+
+<footer>
+  © Seshan M R · Kidswear Design Portfolio
+</footer>
+
+<script>
+const titles = [
+  "Collection Cover",
+  "Mood Board & Colour Story",
+  "Design Brief",
+  "Fabrics, Textures & Trims",
+  "Graphics & Prints",
+  "Collection Line Sheet",
+  "Range Coordination",
+  "Garment Mockups",
+  "Collection Lookbook",
+  "Collection Looks 01",
+  "Collection Looks 02",
+  "Collection Looks 03",
+  "Collection Looks 04",
+  "Collection Looks 05",
+  "Collection Looks 06",
+  "Visual Merchandising",
+  "Collection Presentation"
+];
+
+const gallery = document.getElementById("gallery");
+const nav = document.getElementById("navigation");
+
+titles.forEach((title, index) => {
+  const number = String(index + 1).padStart(2, "0");
+  const id = "p" + (index + 1);
+
+  const section = document.createElement("section");
+  section.className = "page";
+  section.id = id;
+
+  section.innerHTML = `
+    <div class="page-head">
+      <h2>${title}</h2>
+      <small>${number} / 17</small>
+    </div>
+    <img
+      src="/images/ss27/harbour-lines/page-${number}.jpg"
+      alt="Harbour Lines SS27 — ${title}"
+      loading="${index === 0 ? 'eager' : 'lazy'}"
+    >
+  `;
+
+  gallery.appendChild(section);
+
+  const link = document.createElement("a");
+  link.href = "#" + id;
+  link.textContent = title;
+  nav.appendChild(link);
+});
+</script>
+</body>
+</html>
