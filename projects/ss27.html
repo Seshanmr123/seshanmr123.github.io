@@ -53,11 +53,14 @@
 
     .back:hover { opacity: .55; }
 
-    main {
-      max-width: 1440px;
-      margin: auto;
-      padding: 65px max(22px, 5vw) 85px;
-    }
+    
+main {
+  width: 100%;
+  max-width: 1920px;
+  margin: 0 auto;
+  padding: 45px 3vw 65px;
+}
+
 
     .eyebrow {
       color: var(--accent);
@@ -129,7 +132,7 @@
 
     .gallery {
       display: flex;
-      gap: 25px;
+      gap: 32px;
       overflow-x: auto;
       scroll-snap-type: x mandatory;
       scroll-behavior: smooth;
@@ -143,11 +146,13 @@
       display: none;
     }
 
-    .collection {
-      flex: 0 0 calc((100% - 25px) / 2);
-      min-width: 0;
-      scroll-snap-align: start;
-    }
+    
+.collection {
+  flex: 0 0 calc((100% - 32px) / 2);
+  min-width: 0;
+  scroll-snap-align: start;
+}
+
 
     .collection-link {
       display: block;
