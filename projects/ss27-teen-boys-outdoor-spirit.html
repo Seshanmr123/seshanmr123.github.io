@@ -1,0 +1,249 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Outdoor Spirit — SS27 Teen Boys | Seshan M R</title>
+
+<style>
+:root {
+  --bg:#faf7f2;
+  --ink:#292523;
+  --muted:#746e69;
+  --line:#e1dcd5;
+  --accent:#63745d;
+}
+* {box-sizing:border-box}
+html {scroll-behavior:smooth}
+body {
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:Arial,Helvetica,sans-serif;
+}
+a {color:inherit;text-decoration:none}
+header {
+  padding:23px max(22px,5vw);
+  border-bottom:1px solid var(--line);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:16px;
+}
+.brand {
+  font-size:13px;
+  font-weight:800;
+  letter-spacing:.14em;
+}
+.back {
+  font-size:12px;
+  transition:opacity .3s;
+}
+.back:hover {opacity:.5}
+main {
+  max-width:1240px;
+  margin:auto;
+  padding:56px max(22px,5vw) 80px;
+}
+.eyebrow {
+  color:var(--accent);
+  font-size:11px;
+  font-weight:bold;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+}
+h1 {
+  font-size:clamp(46px,8vw,96px);
+  font-weight:500;
+  letter-spacing:-.075em;
+  line-height:1.04;
+  margin:16px 0 20px;
+}
+h1 em {
+  font-family:Georgia,serif;
+  font-weight:400;
+}
+.intro {
+  max-width:680px;
+  margin-bottom:42px;
+  color:var(--muted);
+  line-height:1.7;
+}
+.nav {
+  display:flex;
+  flex-wrap:wrap;
+  gap:9px;
+  margin-bottom:35px;
+}
+.nav a {
+  border:1px solid var(--line);
+  padding:9px 12px;
+  font-size:12px;
+  transition:background .3s,color .3s,transform .3s;
+}
+.nav a:hover {
+  background:var(--ink);
+  color:white;
+  transform:translateY(-3px);
+}
+.page {
+  padding:36px 0 52px;
+  border-top:1px solid var(--line);
+  scroll-margin-top:20px;
+  opacity:0;
+  transform:translateY(35px);
+  transition:opacity .9s ease,transform .9s ease;
+}
+.page.visible {
+  opacity:1;
+  transform:translateY(0);
+}
+.page-head {
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  align-items:baseline;
+  margin-bottom:20px;
+}
+.page h2 {
+  font-size:clamp(23px,3vw,36px);
+  font-weight:500;
+  letter-spacing:-.035em;
+  margin:0;
+}
+.page small {
+  color:var(--muted);
+  font-size:12px;
+  white-space:nowrap;
+}
+.image-wrap {
+  overflow:hidden;
+  background:#ede8e1;
+}
+.page img {
+  display:block;
+  width:100%;
+  height:auto;
+  transition:transform .8s cubic-bezier(.2,.7,.2,1),
+             filter .8s ease;
+}
+.image-wrap:hover img {
+  transform:scale(1.025);
+  filter:brightness(1.035);
+}
+footer {
+  border-top:1px solid var(--line);
+  padding:25px 5vw;
+  color:var(--muted);
+  font-size:12px;
+}
+@media(max-width:700px) {
+  main {padding-top:40px}
+  .page {padding:28px 0 40px}
+}
+@media(prefers-reduced-motion:reduce) {
+  .page {opacity:1;transform:none;transition:none}
+  .page img {transition:none}
+}
+</style>
+</head>
+
+<body>
+<header>
+  <a class="brand" href="/">SESHAN M R</a>
+  <a class="back" href="/projects/ss27.html">← SS27 Collections</a>
+</header>
+
+<main>
+  <div class="eyebrow">Selected Work / Spring Summer 2027 / Teen Boys</div>
+  <h1>Outdoor <em>Spirit.</em></h1>
+  <p class="intro">
+    A contemporary SS27 teen boys collection exploring
+    outdoor-inspired styling, relaxed silhouettes,
+    functional details and commercial summer looks.
+    Discover the collection development, garment
+    coordination and final visual presentation.
+  </p>
+
+  <nav class="nav" id="navigation" aria-label="Collection pages"></nav>
+  <div id="gallery"></div>
+</main>
+
+<footer>© Seshan M R · Kidswear Design Portfolio</footer>
+
+<script>
+const titles = [
+  "Collection Cover",
+  "Mood Board & Colour Story",
+  "Collection Brief",
+  "Fabrics, Textures & Trims",
+  "Graphics & Prints",
+  "Collection Line Sheet",
+  "Garment Mockups",
+  "Final Lineup",
+  "Look 01",
+  "Look 02",
+  "Look 03",
+  "Look 04",
+  "Look 05",
+  "Look 06",
+  "Look 07",
+  "Look 08",
+  "Visual Merchandising"
+];
+
+const gallery = document.getElementById("gallery");
+const nav = document.getElementById("navigation");
+
+titles.forEach((title,index) => {
+  const number = String(index+1).padStart(2,"0");
+  const id = "p"+(index+1);
+  const section = document.createElement("section");
+
+  section.className = "page";
+  section.id = id;
+
+  section.innerHTML = `
+    <div class="page-head">
+      <h2>${title}</h2>
+      <small>${number} / 17</small>
+    </div>
+    <div class="image-wrap">
+      <img
+        src="/images/ss27/outdoor-spirit/page-${number}.jpg"
+        alt="Outdoor Spirit SS27 — ${title}"
+        loading="${index===0?'eager':'lazy'}">
+    </div>
+  `;
+
+  gallery.appendChild(section);
+
+  const link = document.createElement("a");
+  link.href = "#"+id;
+  link.textContent = number;
+  link.setAttribute("aria-label",title);
+  nav.appendChild(link);
+});
+
+if ("IntersectionObserver" in window) {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {threshold:0.04});
+
+  document.querySelectorAll(".page").forEach(page => {
+    observer.observe(page);
+  });
+} else {
+  document.querySelectorAll(".page").forEach(page => {
+    page.classList.add("visible");
+  });
+}
+</script>
+</body>
+</html>
