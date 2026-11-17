@@ -1,0 +1,245 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Little Mariner | SS27 Infant Boys | Seshan M R</title>
+<meta name="description" content="Little Mariner SS27 Infant Boys 0–24 months. A nautical-inspired kidswear collection by Seshan M R.">
+
+<style>
+:root {
+  --bg: #faf9f6;
+  --ink: #242a32;
+  --muted: #747b83;
+  --line: #e1e3e4;
+  --accent: #355c80;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: Arial, Helvetica, sans-serif;
+}
+a { color: inherit; text-decoration: none; }
+
+header {
+  padding: 23px clamp(22px, 5vw, 80px);
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+}
+.brand {
+  font-weight: 800;
+  letter-spacing: .14em;
+  font-size: 13px;
+}
+.back { font-size: 12px; }
+.back:hover { color: var(--accent); }
+
+main {
+  width: 96%;
+  max-width: 1800px;
+  margin: 0 auto;
+  padding: 55px 0 80px;
+}
+.eyebrow {
+  color: var(--accent);
+  font-size: 11px;
+  font-weight: bold;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+}
+h1 {
+  font-size: clamp(46px, 8vw, 96px);
+  font-weight: 500;
+  letter-spacing: -.075em;
+  line-height: 1.04;
+  margin: 16px 0 22px;
+}
+h1 em, h2 em {
+  font-family: Georgia, serif;
+  font-weight: 400;
+}
+.intro {
+  max-width: 760px;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.75;
+  margin-bottom: 42px;
+}
+.nav {
+  display: flex;
+  gap: 9px;
+  flex-wrap: wrap;
+  padding: 20px 0 35px;
+}
+.nav a {
+  border: 1px solid var(--line);
+  padding: 9px 12px;
+  font-size: 12px;
+  transition: .25s;
+}
+.nav a:hover {
+  background: var(--ink);
+  color: white;
+}
+.page {
+  padding: 35px 0 55px;
+  border-top: 1px solid var(--line);
+  scroll-margin-top: 20px;
+}
+.page-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+.page h2 {
+  font-size: clamp(23px, 3vw, 36px);
+  font-weight: 500;
+  letter-spacing: -.035em;
+  margin: 0;
+}
+.page small {
+  color: var(--muted);
+  font-size: 12px;
+  white-space: nowrap;
+}
+.page img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+footer {
+  border-top: 1px solid var(--line);
+  padding: 28px 4%;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .page img {
+    transition: transform .5s ease;
+    transform-origin: center;
+  }
+  .page img:hover { transform: scale(1.01); }
+}
+@media (max-width: 700px) {
+  main { width: 94%; padding-top: 40px; }
+  .page { padding: 25px 0 35px; }
+  .intro { font-size: 14px; }
+  header { gap: 12px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .page img { transition: none; }
+}
+</style>
+</head>
+
+<body>
+<header>
+  <a class="brand" href="/">SESHAN M R</a>
+  <a class="back" href="/projects/ss27.html">
+    &larr; All SS27 collections
+  </a>
+</header>
+
+<main>
+  <div class="eyebrow">
+    SS27 / Infant Boys / 0–24 Months
+  </div>
+  <h1>Little <em>Mariner.</em></h1>
+  <p class="intro">
+    A playful nautical-inspired summer collection
+    designed for little explorers. Combining soft
+    everyday fabrics, maritime graphics, comfortable
+    silhouettes and a timeless coastal colour palette.
+    Explore the complete collection below.
+  </p>
+
+  <nav class="nav" id="navigation"
+       aria-label="Collection sections"></nav>
+
+  <div id="gallery"></div>
+</main>
+
+<footer>
+  &copy; 2026 Seshan M R &nbsp; / &nbsp;
+  SS27 Little Mariner — Infant Boys
+</footer>
+
+<script>
+const titles = [
+  "Collection Cover",
+  "Mood Board",
+  "Mood Board & Colour Story",
+  "Collection Brief",
+  "Fabrics & Trims",
+  "Graphics & Print Direction",
+  "Collection Line Sheet",
+  "Garment Mockups",
+  "Look 01",
+  "Look 02",
+  "Look 03",
+  "Look 04",
+  "Look 05",
+  "Look 06",
+  "Look 07",
+  "Look 08",
+  "Look 09",
+  "Look 10",
+  "Final Line-Up 01",
+  "Final Line-Up 02",
+  "Visual Merchandising 01",
+  "Visual Merchandising 02",
+  "Visual Merchandising 03"
+];
+
+const base = "/images/ss27/little-mariner/";
+const gallery = document.getElementById("gallery");
+const navigation = document.getElementById("navigation");
+
+titles.forEach((title, index) => {
+  const number = index + 1;
+  const id = "p" + number;
+  const count = String(number).padStart(2, "0");
+
+  const link = document.createElement("a");
+  link.href = "#" + id;
+  link.textContent = title;
+  navigation.appendChild(link);
+
+  const section = document.createElement("section");
+  section.className = "page";
+  section.id = id;
+
+  const head = document.createElement("div");
+  head.className = "page-head";
+
+  const heading = document.createElement("h2");
+  heading.textContent = title;
+
+  const counter = document.createElement("small");
+  counter.textContent = count + " / 23";
+
+  head.append(heading, counter);
+
+  const img = document.createElement("img");
+  img.src = base + "page-" + number + ".jpg";
+  img.alt = "Little Mariner — " + title;
+  img.loading = number <= 2 ? "eager" : "lazy";
+  img.decoding = "async";
+
+  section.append(head, img);
+  gallery.appendChild(section);
+});
+</script>
+</body>
+</html>
