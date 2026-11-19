@@ -1,0 +1,259 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sole e Limone | SS27 Infant Boys | Seshan M R</title>
+  <style>
+    :root {
+      --bg: #faf9f6;
+      --ink: #292523;
+      --muted: #746e69;
+      --line: #e1dcd5;
+      --accent: #e2ac35;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    header {
+      padding: 23px clamp(20px, 3vw, 60px);
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .brand {
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: .14em;
+    }
+
+    .back {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    main {
+      width: 94%;
+      max-width: 1800px;
+      margin: 0 auto;
+      padding: 48px 0 80px;
+    }
+
+    .eyebrow {
+      font-size: 11px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-family: Georgia, serif;
+      font-size: clamp(42px, 6vw, 86px);
+      font-weight: 400;
+      letter-spacing: -.045em;
+      margin: 0 0 20px;
+    }
+
+    .intro {
+      max-width: 740px;
+      color: var(--muted);
+      line-height: 1.8;
+      font-size: 15px;
+      margin-bottom: 35px;
+    }
+
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 60px;
+    }
+
+    .nav a {
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      padding: 10px 16px;
+      font-size: 11px;
+      transition: background .2s;
+    }
+
+    .nav a:hover { background: #f0ebe3; }
+
+    .page {
+      margin-bottom: 68px;
+      scroll-margin-top: 30px;
+    }
+
+    .page-heading {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 17px;
+    }
+
+    .number {
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: bold;
+      letter-spacing: .08em;
+    }
+
+    h2 {
+      font-family: Georgia, serif;
+      font-size: clamp(21px, 2.4vw, 32px);
+      font-weight: 400;
+      margin: 0;
+    }
+
+    .page img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border: 1px solid var(--line);
+      background: #fff;
+    }
+
+    .end {
+      border-top: 1px solid var(--line);
+      padding-top: 30px;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    footer {
+      padding: 25px clamp(20px, 3vw, 60px);
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    @media (max-width: 650px) {
+      main {
+        width: 94%;
+        padding-top: 35px;
+      }
+
+      .page { margin-bottom: 40px; }
+      .nav { margin-bottom: 40px; }
+      .end { flex-direction: column; }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <a class="brand" href="/">SESHAN M R</a>
+    <a class="back" href="/projects/ss27.html">
+      ← BACK TO SS27 COLLECTIONS
+    </a>
+  </header>
+
+  <main>
+    <div class="eyebrow">SS27 / Infant Boys / 0–24 Months</div>
+
+    <h1>Sole e Limone.</h1>
+
+    <p class="intro">
+      An Italian summer-inspired infant boys collection celebrating
+      playful lemon motifs, sun-washed colours and soft cotton textures.
+      The range combines crochet-inspired knitwear, yarn-dyed stripes,
+      delicate embroidery, tactile appliqué and coordinated everyday
+      silhouettes for a cheerful, commercially focused summer wardrobe.
+    </p>
+
+    <nav class="nav">
+      <a href="#page-1">Collection Cover</a>
+      <a href="#page-2">Mood &amp; Colour</a>
+      <a href="#page-3">Collection Brief</a>
+      <a href="#page-4">Fabrics &amp; Trims</a>
+      <a href="#page-5">Line Sheet</a>
+      <a href="#page-6">Collection Looks</a>
+      <a href="#page-16">Visual Merchandising</a>
+    </nav>
+
+    <div id="gallery"></div>
+
+    <div class="end">
+      <a href="/projects/ss27.html">← All SS27 Collections</a>
+      <a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">
+        Back to top ↑
+      </a>
+    </div>
+  </main>
+
+  <footer>
+    © Seshan M R · Kidswear Design Portfolio
+  </footer>
+
+  <script>
+    const titles = [
+      "Collection Cover",
+      "Mood Board & Colour Story",
+      "Collection Brief",
+      "Fabrics, Textures & Trims",
+      "Collection Line Sheet",
+      "Range Co-ordination",
+      "Garment Mockups",
+      "Look 01",
+      "Look 02",
+      "Look 03",
+      "Look 04",
+      "Look 05",
+      "Look 06",
+      "Look 07",
+      "Look 08",
+      "Collection Photoshoot",
+      "In-store Visual Merchandising"
+    ];
+
+    const gallery = document.getElementById("gallery");
+
+    titles.forEach((title, index) => {
+      const number = index + 1;
+      const file = `page-${String(number).padStart(2, "0")}.jpg`;
+
+      const section = document.createElement("section");
+      section.className = "page";
+      section.id = `page-${number}`;
+
+      const heading = document.createElement("div");
+      heading.className = "page-heading";
+
+      const count = document.createElement("span");
+      count.className = "number";
+      count.textContent = String(number).padStart(2, "0");
+
+      const h2 = document.createElement("h2");
+      h2.textContent = title;
+
+      const img = document.createElement("img");
+      img.src = `/images/ss27/sole-e-limone/${file}`;
+      img.alt = `Sole e Limone — ${title}`;
+      img.loading = number === 1 ? "eager" : "lazy";
+
+      heading.append(count, h2);
+      section.append(heading, img);
+      gallery.appendChild(section);
+    });
+  </script>
+</body>
+</html>
