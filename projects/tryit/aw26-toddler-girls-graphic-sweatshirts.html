@@ -1,0 +1,196 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AW26 Toddler Girls | TRYIT — Seshan M R</title>
+
+  <style>
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background: #f7f6f3;
+      color: #222;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    header {
+      padding: 24px 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #e6e3df;
+    }
+
+    header a {
+      color: inherit;
+      text-decoration: none;
+      font-size: 13px;
+      letter-spacing: 1px;
+    }
+
+    .brand { font-weight: 700; }
+
+    .intro {
+      text-align: center;
+      padding: 75px 20px 55px;
+    }
+
+    .eyebrow {
+      font-size: 12px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #777;
+    }
+
+    h1 {
+      font-family: Georgia, serif;
+      font-size: clamp(38px, 6vw, 76px);
+      font-weight: 400;
+      line-height: 1.1;
+      margin: 20px 0;
+    }
+
+    .intro p {
+      max-width: 660px;
+      margin: 0 auto;
+      line-height: 1.8;
+      color: #666;
+      font-size: 15px;
+    }
+
+    .gallery {
+      width: min(94%, 1500px);
+      margin: auto;
+    }
+
+    .page {
+      margin-bottom: 55px;
+    }
+
+    .page-number {
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #888;
+      margin-bottom: 15px;
+    }
+
+    .page img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 3px;
+      box-shadow: 0 8px 28px rgba(0,0,0,.05);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(25px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    footer {
+      padding: 65px 20px;
+      text-align: center;
+      font-size: 12px;
+      color: #888;
+      letter-spacing: 1px;
+    }
+
+    @media (max-width: 600px) {
+      header { padding: 20px; }
+      .intro { padding: 55px 20px 40px; }
+      .gallery { width: 96%; }
+      .page { margin-bottom: 28px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <a class="brand" href="/">SESHAN M R</a>
+  <a href="/projects/tryit/">&#8592; BACK TO TRYIT</a>
+</header>
+
+<section class="intro">
+  <div class="eyebrow">TRYIT / AUTUMN WINTER 2026</div>
+
+  <h1>Graphic Sweatshirts<br>Toddler Girls</h1>
+
+  <p>
+    A playful, commercially focused graphic sweatshirt
+    collection for girls aged 2–8 years, exploring
+    expressive artwork, contemporary colour palettes,
+    comfortable silhouettes and innovative print techniques.
+  </p>
+</section>
+
+<main class="gallery" id="gallery"></main>
+
+<footer>
+  AW26 GRAPHIC SWEATSHIRTS &nbsp;·&nbsp;
+  DESIGNED BY SESHAN M R
+</footer>
+
+<script>
+  const gallery = document.getElementById("gallery");
+
+  for (let number = 1; number <= 21; number++) {
+    const section = document.createElement("section");
+    section.className = "page reveal";
+
+    const label = document.createElement("div");
+    label.className = "page-number";
+    label.textContent = "Collection Presentation / " +
+      String(number).padStart(2, "0");
+
+    const img = document.createElement("img");
+    img.src =
+      "/images/tryit/aw26/toddler-girls-graphic-sweatshirts/page-" +
+      number + ".jpg";
+
+    img.alt = "TRYIT AW26 Toddler Girls Collection Page " + number;
+    img.loading = number <= 2 ? "eager" : "lazy";
+
+    section.appendChild(label);
+    section.appendChild(img);
+    gallery.appendChild(section);
+  }
+
+  if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.05 });
+
+    document.querySelectorAll(".reveal").forEach(el => {
+      observer.observe(el);
+    });
+  } else {
+    document.querySelectorAll(".reveal").forEach(el => {
+      el.classList.add("visible");
+    });
+  }
+</script>
+
+</body>
+</html>
